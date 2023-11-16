@@ -34,7 +34,10 @@ button.searchButton {
 
 table.productsTable {
   border-radius: 8px;
-  border: 1px solid var(--Border, #e4e4ef);
+  border-right: 1px solid var(--Border, #e4e4ef);
+  border-left: 1px solid var(--Border, #e4e4ef);
+  border-bottom: 1px solid var(--Border, #e4e4ef);
+  border-collapse: separate;
 }
 
 .productsTable th {
@@ -45,6 +48,12 @@ table.productsTable {
   font-weight: 700;
   line-height: 20px;
   padding: 18px 16px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: white;
+  border-top: 1px solid var(--Border, #e4e4ef);
+  box-shadow: -0px -0px -1px var(--Border, #e4e4ef);
 }
 
 .productsTable th:last-child {
@@ -52,8 +61,12 @@ table.productsTable {
 }
 
 .productsTable tr {
-  border-top: 1px solid var(--Border, #e4e4ef);
+  box-shadow: 0 -1px 0 var(--Border, #e4e4ef);
   cursor: pointer;
+}
+
+.productsTable tr:first-child {
+  box-shadow: none;
 }
 
 .productsTable tr:hover {
@@ -62,6 +75,7 @@ table.productsTable {
 
 .productsTable td {
   padding: 18px 16px;
+  border: none;
 }
 
 .productsTable td:last-child {

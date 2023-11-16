@@ -25,6 +25,9 @@ const tableColumnTitles = [
 ];
 
 export const ProductsTable = ({ products }: Props) => {
+  const handleRowClick = (product: Product) => {
+    console.log("Row clicked", product);
+  };
   return (
     <Flex
       style={{
@@ -44,7 +47,7 @@ export const ProductsTable = ({ products }: Props) => {
           </Thead>
           <Tbody>
             {products.map((product) => (
-              <Tr>
+              <Tr onClick={() => handleRowClick(product)}>
                 <Td>{product.id}</Td>
                 <Td></Td>
                 <Td>{product.quantity}</Td>
