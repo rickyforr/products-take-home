@@ -5,9 +5,10 @@ import {
   InputGroup,
   InputLeftElement,
 } from "@chakra-ui/react";
-import styles from "../../../styles/Home.module.css";
+import styles from "../../../styles/Search.module.css";
 import { SearchIcon } from "@chakra-ui/icons";
 import { useState } from "react";
+import { uiText } from "@/system/constants";
 
 type Props = {
   onGetProducts: (searchParam?: string) => void;
@@ -24,11 +25,11 @@ export const Search = ({ onGetProducts }: Props) => {
     <Flex>
       <InputGroup>
         <InputLeftElement pointerEvents="none">
-          <SearchIcon color="gray.300" height="24px" width="24px" />
+          <SearchIcon color="gray.300" h="24px" w="24px" />
         </InputLeftElement>
         <Input
           className={styles.searchInput}
-          placeholder="Search"
+          placeholder={uiText.searchInputPlaceholder}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             setSearchValue(e.target.value)
           }
@@ -43,7 +44,7 @@ export const Search = ({ onGetProducts }: Props) => {
         className={styles.searchButton}
         onClick={() => onGetProducts(searchValue)}
       >
-        Search
+        {uiText.searchButtonText}
       </Button>
     </Flex>
   );

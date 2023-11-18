@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=VT323&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Nunito+Sans:opsz@6..12&family=VT323&display=swap");
+
+.productsTableContainer {
+  width: 100%;
+  margin-top: 50px;
+}
+
+table.productsTable {
+  border-radius: 8px;
+  border-right: 1px solid var(--table-border-color);
+  border-left: 1px solid var(--table-border-color);
+  border-bottom: 1px solid var(--table-border-color);
+  border-collapse: separate;
+}
+
+.productsTable th {
+  background: white;
+  border-top: 1px solid var(--table-border-color);
+  color: var(--text-primary);
+  font-family: var(--primary-font);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  padding: 18px 16px;
+  position: sticky;
+  top: 0;
+}
+
+.productsTable th:last-child {
+  border-left: 1px solid var(--table-border-color);
+}
+
+.productsTable tr {
+  box-shadow: 0 -1px 0 var(--table-border-color);
+  cursor: pointer;
+}
+
+.productsTable tr:first-child {
+  box-shadow: none;
+  border-top: 1px solid var(--table-border-color);
+}
+
+.productsTable tr:hover {
+  opacity: 0.8;
+}
+
+.productsTable td {
+  padding: 18px 16px;
+  border: none;
+}
+
+.productsTable td:last-child {
+  border-left: 1px solid var(--table-border-color);
+}
+
+.secondaryText {
+  color: var(--text-secondary, #808080);
+  font-family: Nunito Sans;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}

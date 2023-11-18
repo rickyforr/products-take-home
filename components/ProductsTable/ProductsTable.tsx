@@ -10,28 +10,19 @@ import {
   Thead,
   Tr,
   useDisclosure,
-  Box,
 } from "@chakra-ui/react";
-import styles from "../../styles/Home.module.css";
+import styles from "../../styles/ProductsTable.module.css";
 import { ProductModal } from "../ProductModal/ProductModal";
 import { useState } from "react";
+import {
+  RESPONSIVE_PRODUCT_CELL,
+  TABLE_COLUMN_TITLES,
+  uiText,
+} from "@/system/constants";
 
 type Props = {
   products: Product[];
   requestState: { pending: boolean; error: boolean; success: boolean };
-};
-
-const tableColumnTitles = [
-  "ID",
-  "Status",
-  "Quantity",
-  "Product name",
-  "Prices",
-];
-
-const responsiveProductCell = {
-  base: "none",
-  md: "table-cell",
 };
 
 export const ProductsTable = ({ products, requestState }: Props) => {
@@ -44,12 +35,7 @@ export const ProductsTable = ({ products, requestState }: Props) => {
   };
 
   return (
-    <Flex
-      style={{
-        width: "100%",
-        marginTop: "50px",
-      }}
-    >
+    <Flex className={styles.productsTableContainer}>
       {selectedProduct && (
         <ProductModal
           product={selectedProduct}
@@ -57,17 +43,14 @@ export const ProductsTable = ({ products, requestState }: Props) => {
           onClose={onClose}
         />
       )}
-      <TableContainer
-        style={{ width: "100%", height: "80vh" }}
-        overflowY="auto"
-      >
-        {requestState.pending && <Text>Loading...</Text>}
-        {requestState.error && <Text>Error loading products</Text>}
+      <TableContainer w="100%" h="80vh" overflowY="auto">
+        {requestState.pending && <Text>{uiText.loadingMessage}</Text>}
+        {requestState.error && <Text>{uiText.productsErrorMessage}</Text>}
         {requestState.success && (
           <Table variant="unstyled" className={styles.productsTable}>
             <Thead>
               <Tr>
-                {tableColumnTitles.map((title) => (
+                {TABLE_COLUMN_TITLES.map((title) => (
                   <Th
                     display={{
                       base: title === "Product name" ? "table-cell" : "none",
@@ -82,18 +65,18 @@ export const ProductsTable = ({ products, requestState }: Props) => {
             <Tbody>
               {products.length === 0 && (
                 <Tr>
-                  <Text>No products found</Text>
+                  <Text>{uiText.noProductsMessage}</Text>
                 </Tr>
               )}
               {products.map((product) => (
                 <Tr onClick={() => handleRowClick(product)}>
-                  <Td display={responsiveProductCell}>{product.id}</Td>
-                  <Td display={responsiveProductCell}></Td>
-                  <Td display={responsiveProductCell}>{product.quantity}</Td>
+                  <Td display={RESPONSIVE_PRODUCT_CELL}>{product.id}</Td>
+                  <Td display={RESPONSIVE_PRODUCT_CELL}></Td>
+                  <Td display={RESPONSIVE_PRODUCT_CELL}>{product.quantity}</Td>
                   <Td>
                     <Text>{product.product}</Text>
                     <Flex>
-                      <Text className={styles.secondaryText} mr="5px">
+                      <Text className={styles.secondaryText} marginRight={1}>
                         {product.serial}
                       </Text>
                       <Text
@@ -103,11 +86,11 @@ export const ProductsTable = ({ products, requestState }: Props) => {
                         }}
                         className={styles.secondaryText}
                       >
-                        Qty - {product.quantity}
+                        {uiText.quantityPrefix}{product.quantity}
                       </Text>
                     </Flex>
                   </Td>
-                  <Td display={responsiveProductCell}>${product.total}</Td>
+                  <Td display={RESPONSIVE_PRODUCT_CELL}>${product.total}</Td>
                 </Tr>
               ))}
             </Tbody>

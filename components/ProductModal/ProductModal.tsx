@@ -11,6 +11,7 @@ import {
   ModalOverlay,
   Text,
 } from "@chakra-ui/react";
+import styles from "../../styles/ProductModal.module.css";
 
 type Props = {
   product: Product;
@@ -23,7 +24,7 @@ export const ProductModal = ({ product, isOpen, onClose }: Props) => {
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
       <ModalContent>
-        <ModalHeader>{product.product}</ModalHeader>
+        <ModalHeader className={styles.productsModalTitle}>{product.product}</ModalHeader>
         <ModalCloseButton />
         <ModalBody>
           <Flex>

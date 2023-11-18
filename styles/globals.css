@@ -1,5 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=VT323&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Nunito+Sans:opsz@6..12&family=VT323&display=swap");
+
 :root {
   --max-width: 1100px;
+  --page-padding: 1rem;
+  --page-padding-mobile: 0.5rem;
+  --primary-font: "Nunito Sans", sans-serif;
+  --table-border-color: #e4e4ef;
+  --text-primary: #1a1a1a;
+  --text-secondary: #808080;
+  --search-btn-bg: #605dec;
+  --search-btn-color: #fff
 }
 
 html,
