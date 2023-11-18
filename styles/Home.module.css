@@ -9,8 +9,7 @@ input.searchInput {
   display: flex;
   gap: 8px;
   height: 44px;
-  padding: 8px 138px 8px 36px;
-  width: 260px;
+  margin-right: 10px;
 }
 
 button.searchButton {
@@ -67,6 +66,7 @@ table.productsTable {
 
 .productsTable tr:first-child {
   box-shadow: none;
+  border-top: 1px solid var(--Border, #e4e4ef);
 }
 
 .productsTable tr:hover {
@@ -80,4 +80,13 @@ table.productsTable {
 
 .productsTable td:last-child {
   border-left: 1px solid var(--Border, #e4e4ef);
+}
+
+.secondaryText {
+  color: var(--text-secondary, #808080);
+  font-family: Nunito Sans;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
 }
