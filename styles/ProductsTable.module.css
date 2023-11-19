@@ -11,7 +11,6 @@ table.productsTable {
   border-right: 1px solid var(--table-border-color);
   border-left: 1px solid var(--table-border-color);
   border-bottom: 1px solid var(--table-border-color);
-  border-collapse: separate;
 }
 
 .productsTable th {
@@ -62,4 +61,43 @@ table.productsTable {
   font-style: normal;
   font-weight: 400;
   line-height: 20px;
+}
+
+.productsTableBoldText {
+  color: var(--text-primary);
+  font-family: var(--primary-font);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+.productStatus {
+  display: flex;
+  padding: 4px 24px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  width: 6rem;
+  height: 2rem;
+}
+
+.statusOk {
+  color: #605dec;
+  background: #ededfe;
+}
+
+.statusGood {
+  color: #31AA27;
+  background: #EBF6EB;
+}
+
+.statusWarn {
+  color:#E99518;
+  background: #FFF4E4;
+}
+
+.statusAlert {
+  color: #F93232;
+  background: #FFF0F0;
 }

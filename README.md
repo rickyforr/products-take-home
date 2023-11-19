@@ -18,23 +18,81 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/products](http://localhost:3000/api/products).
 
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Storm Products App
 
-## Learn More
+### Folder Structure
+```
+├── components         #All UI components are located in this folder<br>
+│   ├── Header
+│   │   ├── Header.tsx
+│   │   └── Search
+│   │       └── Search.tsx
+│   ├── ProductModal
+│   │   └── ProductModal.tsx
+│   └── ProductsTable
+│       ├── ProductsTable.tsx
+│       └── ProductsTableRow.tsx
+├── pages              #Next js folder used to create pages and api routes
+│   ├── _app.tsx       #This file is used to wrap the app with context providers
+│   ├── _document.tsx  #This file is used to add custom html tags
+│   ├── api            
+│   │   └── products.ts #This file contains the api to return products
+│   └── index.tsx       #This is the main page. Uses UI elements from components folder
+├── public              #This folder contains static files used in the app
+│   ├── favicon.ico
+│   ├── next.svg
+│   ├── storm_logo_icon.svg
+│   ├── storm_logo_text.svg
+│   └── vercel.svg
+├── styles             #This folder contains all the css files used in the app
+│   ├── Header.module.css
+│   ├── ProductModal.module.css
+│   ├── ProductsTable.module.css
+│   ├── Search.module.css
+│   └── globals.css
+├── system          #This folder contains types, data and logic that can be used across the app
+│   ├── constants.ts
+│   ├── types.ts
+│   └── useProducts.ts
+├── tsconfig.json
+└── yarn.lock
+```
 
-To learn more about Next.js, take a look at the following resources:
+### UI Components
+#### Header
+This component is used to display the header of the app. It contains the logo and search bar.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+#### Search
+This component is used to display the search bar. It contains a text input and a button.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+#### ProductsTable
+This component is used to display the products table.
 
-## Deploy on Vercel
+#### ProductModal
+This component is used to display the product modal. It contains the product image, name, description and price.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+#### ProductsTableRow
+This component is used to display a row in the products table. It contains the product image, name, description and price. It also contains a button to open the product modal. If the product data model changes, this component will need to be updated.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### System
+#### useProducts
+This hook is used to fetch the products from the api. It returns the products and a function to fetch the products.
+
+#### types
+This file contains all the types used in the app. If the product data model changes, this file will need to be updated.
+
+#### constants
+This file contains all the constants used in the app.
+
+### Pages
+If additional pages are added to the app, they should be added to the pages folder. The pages folder is used by next js to create the routes of the app.
+#### index
+This page is the main page of the app. It contains the header, search bar and products table. It also contains the logic to fetch the products and display the product modal.
+
+### API
+#### products
+This api is used to fetch the products from the api. It returns the products in json format.

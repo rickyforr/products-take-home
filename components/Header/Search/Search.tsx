@@ -25,7 +25,7 @@ export const Search = ({ onGetProducts }: Props) => {
     <Flex>
       <InputGroup>
         <InputLeftElement pointerEvents="none">
-          <SearchIcon color="gray.300" h="24px" w="24px" />
+          <SearchIcon h="24px" w="24px" />
         </InputLeftElement>
         <Input
           className={styles.searchInput}

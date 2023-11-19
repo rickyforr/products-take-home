@@ -1,6 +1,14 @@
 import { useEffect, useState } from "react";
 import { Product } from "./types";
 
+/**
+ * This hook is used to fetch products from the API and also
+ * handles the state of the request. 
+ * Add it to a component that requires access to the products.
+ * @returns {Array} products - The products returned from the API
+ * @returns {Object} requestState - The state of the request
+ * @returns {Function} onGetProducts - The function to call to get the products
+ */
 export const useProducts = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [requestState, setRequestState] = useState<{

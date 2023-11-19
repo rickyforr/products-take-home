@@ -2,29 +2,33 @@ import { Product } from "@/system/types";
 import {
   Flex,
   Table,
-  Text,
   TableContainer,
   Tbody,
-  Td,
   Th,
   Thead,
   Tr,
   useDisclosure,
+  Text,
 } from "@chakra-ui/react";
 import styles from "../../styles/ProductsTable.module.css";
 import { ProductModal } from "../ProductModal/ProductModal";
 import { useState } from "react";
 import {
-  RESPONSIVE_PRODUCT_CELL,
   TABLE_COLUMN_TITLES,
   uiText,
 } from "@/system/constants";
+import { ProductsTableRow } from "./ProductsTableRow";
 
 type Props = {
   products: Product[];
   requestState: { pending: boolean; error: boolean; success: boolean };
 };
 
+/**
+ * Renders a table with product information.
+ * @param props.products - The products to display.
+ * @param props.requestState - The state of the request to get the products.
+ */
 export const ProductsTable = ({ products, requestState }: Props) => {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const { isOpen, onClose, onOpen } = useDisclosure();
@@ -35,7 +39,7 @@ export const ProductsTable = ({ products, requestState }: Props) => {
   };
 
   return (
-    <Flex className={styles.productsTableContainer}>
+    <Flex className={styles.productsTableContainer} flexDir="column">
       {selectedProduct && (
         <ProductModal
           product={selectedProduct}
@@ -43,15 +47,22 @@ export const ProductsTable = ({ products, requestState }: Props) => {
           onClose={onClose}
         />
       )}
-      <TableContainer w="100%" h="80vh" overflowY="auto">
+      <Flex className={styles.productsTableBoldText}>
+        {uiText.productsTableTitle}
+        <Text className={styles.secondaryText} ml={1}>
+          {uiText.resultsAmountText(products.length, products.length)}
+        </Text>
+      </Flex>
+      <TableContainer w="100%" h="100%" mt={1} overflowY="auto">
         {requestState.pending && <Text>{uiText.loadingMessage}</Text>}
-        {requestState.error && <Text>{uiText.productsErrorMessage}</Text>}
+        {requestState.error && <Text p={2}>{uiText.productsErrorMessage}</Text>}
         {requestState.success && (
-          <Table variant="unstyled" className={styles.productsTable}>
+          <Table className={styles.productsTable} variant="unstyled" >
             <Thead>
               <Tr>
-                {TABLE_COLUMN_TITLES.map((title) => (
+                {TABLE_COLUMN_TITLES.map((title, index) => (
                   <Th
+                    key={`products-table-title-${index}`}
                     display={{
                       base: title === "Product name" ? "table-cell" : "none",
                       md: "table-cell",
@@ -65,33 +76,16 @@ export const ProductsTable = ({ products, requestState }: Props) => {
             <Tbody>
               {products.length === 0 && (
                 <Tr>
-                  <Text>{uiText.noProductsMessage}</Text>
+                  <Text p={2}>{uiText.noProductsMessage}</Text>
                 </Tr>
               )}
-              {products.map((product) => (
-                <Tr onClick={() => handleRowClick(product)}>
-                  <Td display={RESPONSIVE_PRODUCT_CELL}>{product.id}</Td>
-                  <Td display={RESPONSIVE_PRODUCT_CELL}></Td>
-                  <Td display={RESPONSIVE_PRODUCT_CELL}>{product.quantity}</Td>
-                  <Td>
-                    <Text>{product.product}</Text>
-                    <Flex>
-                      <Text className={styles.secondaryText} marginRight={1}>
-                        {product.serial}
-                      </Text>
-                      <Text
-                        display={{
-                          base: "table-cell",
-                          md: "none",
-                        }}
-                        className={styles.secondaryText}
-                      >
-                        {uiText.quantityPrefix}{product.quantity}
-                      </Text>
-                    </Flex>
-                  </Td>
-                  <Td display={RESPONSIVE_PRODUCT_CELL}>${product.total}</Td>
-                </Tr>
+              {products.map((product, index) => (
+                <ProductsTableRow
+                  key={`products-${index}`}
+                  product={product}
+                  index={index}
+                  onClick={handleRowClick}
+                />
               ))}
             </Tbody>
           </Table>
