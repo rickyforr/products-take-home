@@ -1,6 +1,6 @@
 .productsModalTitle {
   color: var(--text-primary);
-  font-family: Inter;
+  font-family: var(--secondary-font);
   font-style: normal;
   font-weight: 700;
   line-height: 120%;

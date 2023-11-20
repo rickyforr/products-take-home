@@ -16,7 +16,7 @@ button.searchButton {
   border-radius: 4px;
   color: var(--search-btn-color);
   display: flex;
-  font-family: "Inter", sans-serif;
+  font-family: var(--secondary-font);
   font-size: 1rem;
   font-style: normal;
   font-weight: 500;

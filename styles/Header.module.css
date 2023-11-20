@@ -4,7 +4,7 @@
 
 .userNameText {
   color: #605dec;
-  font-family: var(--text-secondary);
+  font-family: var(--secondary-font);
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
