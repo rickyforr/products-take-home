@@ -4,9 +4,10 @@ input.searchInput {
   border: 1px solid var(--table-border-color);
   display: flex;
   gap: 8px;
-  height: 44px;
-  margin-right: 10px;
+  height: 2.7rem;
+  margin-right: 1rem;
   min-width: 6rem;
+  padding-left: 2.7rem;
 }
 
 button.searchButton {
@@ -16,14 +17,24 @@ button.searchButton {
   color: var(--search-btn-color);
   display: flex;
   font-family: "Inter", sans-serif;
-  font-size: 14px;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 500;
   gap: 4px;
   height: 100%;
   justify-content: center;
-  letter-spacing: 0.28px;
-  line-height: 20px;
+  letter-spacing: 0.002rem;
+  line-height: 1.2rem;
   padding: 12px 24px;
-  height: 44px;
+  height: 2.7rem;
+}
+
+.searchInputErrorText {
+  font-size: 0.9rem; 
+}
+
+.searchInputIcon {
+  height: 1.5rem; 
+  width: 1.5rem;
+  color: var(--text-secondary);
 }

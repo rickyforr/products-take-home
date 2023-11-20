@@ -37,6 +37,8 @@ const uiText = {
   searchButtonText: "Search",
   closeButtonText: "Close",
   productsTableTitle: "Products",
+  userNameMock: "John Doe",
+  searchInputErrorMessage: "Invalid search.",
   resultsAmountText: (results: number, totalItems: number) =>
     `${results} of ${totalItems} results`,
 };

@@ -6,11 +6,13 @@
   --page-padding: 1rem;
   --page-padding-mobile: 0.5rem;
   --primary-font: "Nunito Sans", sans-serif;
+  --secondary-font: "Inter", sans-serif;
   --table-border-color: #e4e4ef;
   --text-primary: #1a1a1a;
   --text-secondary: #808080;
   --search-btn-bg: #605dec;
-  --search-btn-color: #fff
+  --search-btn-color: #fff;
+  --icon-color: #5D5FEF;
 }
 
 html,

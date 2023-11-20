@@ -1,3 +1,27 @@
 .logoContainer {
   min-width: 14rem;
 }
+
+.userNameText {
+  color: #605dec;
+  font-family: var(--text-secondary);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.28px;
+  height: fit-content;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.headerIcon {
+  color: var(--icon-color);
+  font-size: 1.8rem;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
+.headerIcon:hover {
+  opacity: 0.8;
+}

@@ -1,39 +1,42 @@
 import { Flex } from "@chakra-ui/react";
-import Image from "next/image";
 import { Search } from "./Search/Search";
 import { appImages } from "@/system/constants";
-import styles from "../../styles/Header.module.css"; 
+import styles from "../../styles/Header.module.css";
+import { MobileHeaderMenu, HeaderMenuItems } from "./HeaderMenu";
+import { HeaderLogo } from "./HeaderLogo";
 
 type Props = {
   onGetProducts: (searchParam?: string) => void;
+  showSearch?: boolean;
 };
 
 /**
  * Renders the app header including the logo and search bar.
  * @param props.onGetProducts - Function to get products from the API.
+ * @param props.showSearch - Whether to show the search bar or not.
  */
-export const Header = ({ onGetProducts }: Props) => {
-    
+export const Header = ({ onGetProducts, showSearch = true }: Props) => {
   return (
     <Flex paddingTop={1} flexWrap="wrap">
-      <Flex flex={1}>
-        <Flex className={styles.logoContainer} mb={2} >
-          <Image
-            src={appImages.logo.imageUrl}
-            alt={appImages.logo.altText}
-            width={46.631}
-            height={43.995}
-          />
-          <Image
-            src={appImages.logoText.imageUrl}
-            alt={appImages.logoText.altText}
-            width={154.942}
-            height={31.834}
-          />
+      <Flex
+        flex={1}
+        mt={1}
+        alignItems="center"
+        justifyContent={{ base: "space-between", md: "flex-start" }}
+      >
+        <HeaderLogo />
+        <Flex display={{ base: "flex", sm: "none" }}>
+          <MobileHeaderMenu />
         </Flex>
       </Flex>
-      <Flex flex={1}>
-        <Search onGetProducts={onGetProducts} />
+      <Flex mt={1} flex={1} alignItems="center" justifyContent="flex-end">
+        {showSearch && <Search onGetProducts={onGetProducts} />}
+        <Flex display={{ base: "none", md: "flex" }} alignItems="center">
+          <HeaderMenuItems />
+        </Flex>
+        <Flex display={{ base: "none", sm: "flex", md: "none" }}>
+          <MobileHeaderMenu />
+        </Flex>
       </Flex>
     </Flex>
   );
