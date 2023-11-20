@@ -38,7 +38,7 @@ const uiText = {
   closeButtonText: "Close",
   productsTableTitle: "Products",
   userNameMock: "John Doe",
-  searchInputErrorMessage: "Invalid search.",
+  searchInputErrorMessage: "Remove invalid characters.",
   resultsAmountText: (results: number, totalItems: number) =>
     `${results} of ${totalItems} results`,
 };

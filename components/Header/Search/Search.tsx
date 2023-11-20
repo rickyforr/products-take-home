@@ -34,8 +34,10 @@ export const Search = ({ onGetProducts }: Props) => {
   };
 
   const handleSearchValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchValue(e.target.value);
-    handleSearchValueValidation(e.target.value);
+    const newValue = e.target.value;
+    setSearchValue(newValue);
+    handleSearchValueValidation(newValue);
+    if(searchValue && !newValue) onGetProducts()
   };
 
   return (

@@ -30,7 +30,8 @@ button.searchButton {
 }
 
 .searchInputErrorText {
-  font-size: 0.9rem; 
+  font-size: 0.9rem;
+  white-space: nowrap;
 }
 
 .searchInputIcon {
