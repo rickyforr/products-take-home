@@ -13,7 +13,7 @@ export default function Home() {
       display="flex"
       flexDir="column"
       width="100%"
-      padding={{ base: 1, md: 2 }}
+      padding={{ base: "10px", md: "50px" }}
     >
       <Header onGetProducts={onGetProducts} />
       <ProductsTable products={products} requestState={requestState} />

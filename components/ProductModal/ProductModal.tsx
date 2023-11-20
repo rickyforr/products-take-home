@@ -2,6 +2,7 @@ import { Product } from "@/system/types";
 import {
   Button,
   Flex,
+  ListItem,
   Modal,
   ModalBody,
   ModalCloseButton,
@@ -10,10 +11,15 @@ import {
   ModalHeader,
   ModalOverlay,
   Text,
+  UnorderedList,
 } from "@chakra-ui/react";
 import styles from "../../styles/ProductModal.module.css";
 import { FaImage } from "react-icons/fa6";
-import { uiText } from "@/system/constants";
+import {
+  mockKeyFeatures,
+  mockProductDetails,
+  uiText,
+} from "@/system/constants";
 import { HeaderLogo } from "../Header/HeaderLogo";
 import { CloseIcon } from "@chakra-ui/icons";
 import { MobileHeaderMenu } from "../Header/HeaderMenu";
@@ -32,12 +38,17 @@ type Props = {
  */
 export const ProductModal = ({ product, isOpen, onClose }: Props) => {
   return (
-    <Modal isOpen={isOpen} onClose={onClose} size={{ sm: "full", md: "2xl" }}>
+    <Modal
+      isOpen={isOpen}
+      onClose={onClose}
+      size={{ sm: "full", md: "2xl" }}
+    >
       <ModalOverlay />
       <ModalContent
         padding={{ base: "1rem", md: "2rem" }}
         margin={{ base: "0px", md: "auto" }}
-        height={{ base: "100vh", md: "80%" }}
+        height={{ base: "100%", md: "80%" }}
+        overflowY="auto"
       >
         <Flex
           display={{ base: "flex", md: "none" }}
@@ -71,14 +82,24 @@ export const ProductModal = ({ product, isOpen, onClose }: Props) => {
           <Flex padding="1rem">
             <FaImage style={{ fontSize: "200px" }} />
           </Flex>
-          <Flex padding="1rem" flexDir="column">
-            <Text>Serial number: {product.serial}</Text>
-            <Text>Quantity: {product.quantity}</Text>
-            <Text>Total: ${product.total}</Text>
+          <Flex
+            className={styles.productDetailsText}
+            padding="1rem"
+            flexDir="column"
+          >
+            <Text fontWeight="bold">{uiText.keyFeaturesTitle}</Text>
+            <UnorderedList>
+              {mockKeyFeatures.map((feature, index) => (
+                <ListItem key={`key-feature-${index}`}>
+                  <Text>{feature}</Text>
+                </ListItem>
+              ))}
+            </UnorderedList>
+            <Text mt={1}>{mockProductDetails}</Text>
           </Flex>
         </ModalBody>
         <ModalFooter>
-          <Button onClick={onClose} width={{ base: "100%", md: "200px" }}>
+          <Button onClick={onClose} width={{ base: "100%", md: "10rem" }}>
             {uiText.closeButtonText}
           </Button>
         </ModalFooter>

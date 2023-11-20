@@ -11,6 +11,9 @@ import {
 import { HeaderIcon } from "./HeaderIcon";
 import styles from "../../styles/Header.module.css";
 
+/**
+ * Renders the header menu items.
+ */
 export const HeaderMenuItems = () => {
   return (
     <>
@@ -26,6 +29,9 @@ export const HeaderMenuItems = () => {
   );
 };
 
+/**
+ * Renders the mobile header menu.
+ */
 export const MobileHeaderMenu = () => {
   return (
     <Menu>
@@ -40,9 +46,11 @@ export const MobileHeaderMenu = () => {
         mx={{ base: 0, sm: 2 }}
       />
       <MenuList>
-        <MenuItem icon={<HeaderIcon iconName="settings" />}>Settings</MenuItem>
+        <MenuItem icon={<HeaderIcon iconName="settings" />}>
+          {uiText.settingsMenuItemText}
+        </MenuItem>
         <MenuItem icon={<HeaderIcon iconName="notifications" />}>
-          Notifications
+          {uiText.notificationMenuItemText}
         </MenuItem>
         <MenuItem icon={<HeaderIcon iconName="user" />}>
           {uiText.userNameMock}

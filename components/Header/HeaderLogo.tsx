@@ -3,6 +3,9 @@ import { Flex } from "@chakra-ui/react";
 import styles from "../../styles/Header.module.css";
 import Image from "next/image";
 
+/**
+ * Renders the app logo.
+ */
 export const HeaderLogo = () => {
   return (
     <Flex className={styles.logoContainer}>

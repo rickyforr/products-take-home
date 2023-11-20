@@ -25,6 +25,10 @@ export const Search = ({ onGetProducts }: Props) => {
   const [searchValue, setSearchValue] = useState<string>("");
   const [error, setError] = useState<boolean>(false);
 
+  /**
+   * Validates the search input value and sets the error state.
+   * @param value 
+   */
   const handleSearchValueValidation = (value: string) => {
     if (value === "") {
       setError(false);
@@ -33,6 +37,11 @@ export const Search = ({ onGetProducts }: Props) => {
     setError(!validateSearchInput(value));
   };
 
+  /** 
+   * Handles the change of the search input value.
+   * Calls the validation function and sets the new value.
+   * @param e - The event object.
+  */
   const handleSearchValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value;
     setSearchValue(newValue);

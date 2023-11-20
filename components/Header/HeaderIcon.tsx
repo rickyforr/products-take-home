@@ -9,6 +9,11 @@ type Props = {
   iconProps?: any;
 };
 
+/**
+ * Renders a header icon based on the icon name.
+ * @param props.iconName - The name of the icon to render.
+ * @param props.iconProps - The props to pass to the icon. 
+ */
 export const HeaderIcon = ({ iconName, iconProps }: Props) => {
   switch (iconName) {
     case "settings":
